@@ -6,7 +6,7 @@ defmodule GenStageExample.Schema do
   @doc """
   ## Examples
   ```
-  iex> GenStageExample.Controller.Schema.check_job(GenStageExample.Schema.SampleJob, %{})
+  iex> GenStageExample.Schema.check_job(GenStageExample.Schema.SampleJob, %{})
   :ok
   ```
   """

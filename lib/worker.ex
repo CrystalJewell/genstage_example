@@ -14,7 +14,7 @@ defmodule GenStageExample.Worker do
 
   ## Callbacks
 
-  The following callbacks are defined by the ``GenStageExample.Worker` macro:
+  The following callbacks are defined by the `GenStageExample.Worker` macro:
 
   - `init`
 
@@ -27,7 +27,7 @@ defmodule GenStageExample.Worker do
 
   Calls the `do_start` function defined in the worker implementation. This should
   return `{new_msg, new_state}`. The next state is provided to `after_start_response`
-  which calculates a JSON-serializable response suitable for the API. The callback
+  which calculates a JSON-serializable response suitable for an API. The callback
   finishes by replying with the response and sending a `:continue` message with
   `{:reply, reply, new_state, {:continue, next_msg}}`. This stage should
   perform every task in the job up to the first asynchronous step.
@@ -54,12 +54,12 @@ defmodule GenStageExample.Worker do
 
   The following functions must be implemented by a worker:
 
-  | Function | Description | Example |
+  | Function | Description |
   | --- | --- | --- |
-  | `status_response/1` | Returns JSON-serializable summary of state | example |
-  | `after_start_response/1` | Returns JSON-serializable response to API | example |
-  | `do_start/1` | Returns state (after sync steps) and next message | example |
-  | `do_restart/1` | Returns state (after possible cleaning) and next message | example |
+  | `status_response/1` | Returns JSON-serializable summary of state |
+  | `after_start_response/1` | Returns JSON-serializable response to API |
+  | `do_start/1` | Returns state (after sync steps) and next message |
+  | `do_restart/1` | Returns state (after possible cleaning) and next message |
   """
 
   defmacro __using__(_opts) do

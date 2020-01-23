@@ -14,8 +14,6 @@ defmodule GenStageExample.Application do
     # List all child processes to be supervised
     children = [
       GenStageExample.JobSupervisor
-      # Starts a worker by calling: NoPhoenix.Worker.start_link(arg)
-      # {NoPhoenix.Worker, arg},
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

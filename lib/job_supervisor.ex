@@ -10,7 +10,7 @@ defmodule GenStageExample.JobSupervisor do
   - Are given the name of a cache server to store state before error-prone steps
   - Check the cache server for state on init
 
-  Things it does
+  Things this does
   - Starts a cache server on startup
   - Starts a worker with a given module and params
   - Restarts a worker from saved state when it terminates with an error

@@ -4,7 +4,8 @@ defmodule GenStageExample.SampleWorker do
   """
 
 #  Setting a module attribute before a `use` does not follow community conventions however
-#  this attribute is needed for `GenStageExample.Worker`
+#  this attribute is needed for use `GenStageExample.Worker` too, which could technically
+#  be set in both places but if changes are needed to # you would need to remember to change there too
   @max_restarts 5
 
   use GenStageExample.Worker
