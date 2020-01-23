@@ -11,8 +11,8 @@ defmodule GenStageExample.Schema.SampleJobError do
         name: "step 1",
         state: :pending,
         func: fn _ ->
-                 Process.sleep(100)
-                 {:error, "error reason"}
+          Process.sleep(100)
+          {:error, "error reason"}
         end
       },
       %{

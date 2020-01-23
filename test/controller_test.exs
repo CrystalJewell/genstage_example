@@ -11,7 +11,9 @@ defmodule GenStageExample.ControllerTest do
     end
 
     test "with good params and mock dont insert job" do
-      {:ok, %{job_id: job_id}} = Controller.create_job(SampleWorker, %{job_type: "A Job", mock: true})
+      {:ok, %{job_id: job_id}} =
+        Controller.create_job(SampleWorker, %{job_type: "A Job", mock: true})
+
       assert is_nil(GenServer.call(JobSupervisorCache, {:find, job_id}))
     end
   end

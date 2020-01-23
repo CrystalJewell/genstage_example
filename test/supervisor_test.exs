@@ -6,7 +6,9 @@ defmodule GenStageExample.JobSupervisorTest do
     job_supervisor = Process.whereis(JobSupervisor)
 
     job_id = UUID.uuid4()
-    {:ok, sample_worker} = JobSupervisor.start_child(SampleWorker, %{step_1: "not done", step_2: "not_done"}, job_id)
+
+    {:ok, sample_worker} =
+      JobSupervisor.start_child(SampleWorker, %{step_1: "not done", step_2: "not_done"}, job_id)
 
     %{job_supervisor: job_supervisor, sample_worker: sample_worker, job_id: job_id}
   end
@@ -45,7 +47,10 @@ defmodule GenStageExample.JobSupervisorTest do
       assert state.job_id == job_id
     end
 
-    test "restarts with saved state on a restart error", %{sample_worker: sample_worker, job_id: job_id} do
+    test "restarts with saved state on a restart error", %{
+      sample_worker: sample_worker,
+      job_id: job_id
+    } do
       old_state = GenServer.call(sample_worker, :status)
       GenServer.cast(sample_worker, :make_restart_error)
       ensure_dead(sample_worker)
@@ -59,7 +64,10 @@ defmodule GenStageExample.JobSupervisorTest do
       assert Map.drop(new_state, [:pid, :restarts]) == Map.drop(old_state, [:pid, :restarts])
     end
 
-    test "can die and not restart", %{sample_worker: sample_worker, job_supervisor: job_supervisor} do
+    test "can die and not restart", %{
+      sample_worker: sample_worker,
+      job_supervisor: job_supervisor
+    } do
       GenServer.cast(sample_worker, :make_no_restart_error)
       ensure_dead(sample_worker)
 

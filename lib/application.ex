@@ -8,7 +8,7 @@ defmodule GenStageExample.Application do
     # Wait for Mnesia application to create Jobs table
     with :ok <- :mnesia.create_schema([node()]),
          :ok <- :mnesia.start() do
-    :mnesia.create_table(Job, [attributes: [:job_id, :pid, :params, :steps, :state, :time]])
+      :mnesia.create_table(Job, attributes: [:job_id, :pid, :params, :steps, :state, :time])
     end
 
     # List all child processes to be supervised

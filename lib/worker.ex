@@ -81,7 +81,7 @@ defmodule GenStageExample.Worker do
       end
 
       def handle_continue(:restart, state) do
-#        TODO: Handle restart
+        #        TODO: Handle restart
         # {next_msg, new_state} = do_restart(state)
         # {:noreply, new_state, {:continue, next_msg}}
         {:noreply, state}
